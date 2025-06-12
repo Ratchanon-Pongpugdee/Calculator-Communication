@@ -21,20 +21,21 @@
 
 ## วิธีเปิดโปรเจคต์
 - (Backend)
-    cd backend
-    npm run dev , npm start , node server.js
+    cd backend >> 
+    node server.js , npm start , npm run dev(เเนะนำ)
 - (Frontend)
-    cd frontend
+    cd frontend >> 
     npm run dev
 - (Playwright)
-    cd playwright
+    cd playwright >> 
     npx playwright test , npx playwright test --headed(หากต้องการดูผลใน browser)
 - (Ngrok)
-    cd Calculator-App
+    cd Calculator-App >> 
+    npm install >> 
     ngrok http 5173
 - (ElectronJS)
-    cd electron
-    npm install
+    cd electron >> 
+    npm install >> 
     npm start
 
 ## หมายเหตุ

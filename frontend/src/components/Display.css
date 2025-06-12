@@ -1,0 +1,12 @@
+.calculator-display input {
+  width: 100%;
+  height: 60px;
+  background-color: #444;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-align: right;
+  padding: 0 15px;
+  font-size: 2em;
+  box-sizing: border-box; /* รวม padding ในความกว้าง */
+}

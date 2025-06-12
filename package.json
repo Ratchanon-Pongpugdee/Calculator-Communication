@@ -1,0 +1,23 @@
+{
+  "name": "calculator-app-full",
+  "version": "1.0.0",
+  "description": "Full-stack calculator with React, Node.js, and Electron",
+  "main": "electron/main.js",
+  "scripts": {
+    "start:frontend": "cd frontend && npm run dev",
+    "start:backend": "cd backend && npm run dev",
+    "start:electron": "cd electron && set NODE_ENV=development && npm start",
+    "start:all": "npm run start:frontend & npm run start:backend & npm run start:electron",
+    "build:frontend": "cd frontend && npm run build",
+    "test:e2e": "cd playwright && npx playwright test",
+    "test:e2e:headed": "cd playwright && npx playwright test --headed"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "workspaces": [
+    "frontend",
+    "backend",
+    "electron"
+  ]
+}

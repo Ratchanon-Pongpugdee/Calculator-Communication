@@ -1,0 +1,230 @@
+/* กำหนดพื้นฐานสำหรับทั้งหน้า */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif; /* ใช้ Font Inter ตามคำแนะนำ */
+  background-image: url('./asset/wallpaper.jpg'); /* สีพื้นหลังเข้มๆ */
+  color: #fff; /* สีข้อความหลัก */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Container หลักของเครื่องคิดเลข */
+.calculator-container {
+  background-color: #1f1e33; /* สีพื้นหลังของเครื่องคิดเลข */
+  border-radius: 12px; /* ขอบโค้งมน */
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* เงาเพื่อความลึก */
+  width: 380px; /* ปรับความกว้างให้เหมาะสมกับ 5 คอลัมน์ */
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* ระยะห่างระหว่างองค์ประกอบหลัก */
+}
+
+/* สไตล์สำหรับ h2 ในหัวข้อ */
+.calculator-container h1 {
+  text-align: center;
+  color: #ffffff;
+  font-size: 1.1rem;
+  line-height: 1.5;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+/* ช่อง input สำหรับการคำนวณ */
+.calc-input {
+  width: 100%;
+  padding: 15px 20px;
+  font-size: 1.6em;
+  background-color: #444;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  text-align: right;
+  box-sizing: border-box; /* รวม padding ในความกว้าง */
+  outline: none; /* ลบเส้นขอบเมื่อ focus */
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.calc-input:focus {
+  background-color: #555;
+  box-shadow: 0 0 0 2px #61dafb; /* เพิ่มเงารอบเมื่อ focus */
+}
+
+/* ช่องแสดงผลลัพธ์ */
+.result {
+  min-height: 40px;
+  background-color: #2a2a2a;
+  color: #00ff00; /* สีเขียวสดใสสำหรับผลลัพธ์ */
+  text-align: right;
+  padding: 10px 20px;
+  font-size: 2.2em;
+  font-weight: bold;
+  border-radius: 8px;
+  overflow-x: auto; /* ให้ scroll ได้ถ้าผลลัพธ์ยาวเกิน */
+  white-space: nowrap; /* ไม่ให้ขึ้นบรรทัดใหม่ */
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3); /* เงาด้านใน */
+}
+
+/* Grid สำหรับปุ่ม */
+.button-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 คอลัมน์ตามรูปตัวอย่าง */
+  gap: 12px; /* ระยะห่างระหว่างปุ่ม */
+}
+
+/* สไตล์ปุ่มทั่วไป */
+.button-grid button {
+  background-color: #555;
+  color: #fff;
+  border: none;
+  border-radius: 10px; /* ขอบโค้งมน */
+  padding: 18px 0;
+  font-size: 1.5em;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* เงาให้ปุ่มดูมีมิติ */
+}
+
+.button-grid button:hover {
+  background-color: #777;
+  transform: translateY(-2px); /* ยกขึ้นเล็กน้อยเมื่อ hover */
+}
+
+.button-grid button:active {
+  background-color: #444;
+  transform: translateY(0); /* กลับมาตำแหน่งเดิมเมื่อคลิก */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* สไตล์เฉพาะสำหรับปุ่มพิเศษ */
+.clear-button {
+  background-color: #e74c3c; /* สีแดง */
+}
+
+.del-button {
+  background-color: #f39c12; /* สีส้ม */
+}
+
+.equals-button {
+  background-color: #27ae60; /* สีเขียว */ /* ปุ่มเท่ากับกิน 2 คอลัมน์ */
+}
+
+.operator-button {
+  background-color: #f39c12; /* สีส้มสำหรับเครื่องหมาย */
+}
+
+.parenthesis-button {
+  background-color: #6c5ce7; /* สีม่วงสำหรับวงเล็บ */
+}
+
+/* ส่วนของประวัติการคำนวณ */
+.history {
+  margin-top: 25px;
+  background-color: #2a2a2a;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+.history h2 {
+  color: #a0a0a0;
+  font-size: 1.1rem;
+  margin-top: 0;
+  margin-bottom: 15px;
+  display: flex; /* ใช้ flexbox จัดปุ่ม "ลบประวัติ" */
+  justify-content: space-between;
+  align-items: center;
+}
+
+.history button { /* สไตล์สำหรับปุ่ม "ลบประวัติ" */
+  background-color: #555 !important; /* ใช้ !important เพื่อ override style inline */
+  color: #fff !important;
+  border: none !important;
+  padding: 8px 15px !important;
+  border-radius: 6px !important;
+  font-size: 0.9rem !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s ease;
+  box-shadow: none !important; /* ลบเงาปุ่มสำหรับปุ่มนี้ */
+}
+
+.history button:hover {
+  background-color: #777 !important;
+}
+
+.history ul {
+  list-style: none; /* ไม่มีจุดหน้าข้อความ */
+  padding: 0;
+  margin: 0;
+  max-height: 200px; /* จำกัดความสูงของประวัติ */
+  overflow-y: auto; /* ให้ scroll ได้ถ้าประวัติยาวเกิน */
+}
+
+.history li {
+  background-color: #3a3a3a;
+  padding: 10px 15px;
+  margin-bottom: 8px;
+  border-radius: 6px;
+  color: #ccc;
+  font-size: 0.95em;
+  word-wrap: break-word; /* ให้ข้อความขึ้นบรรทัดใหม่ได้ */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* สไตล์สำหรับ Scrollbar */
+.history ul::-webkit-scrollbar {
+  width: 8px;
+}
+
+.history ul::-webkit-scrollbar-track {
+  background: #2a2a2a;
+  border-radius: 10px;
+}
+
+.history ul::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 10px;
+}
+
+.history ul::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}
+
+/* Responsive Design สำหรับหน้าจอเล็ก */
+@media (max-width: 480px) {
+  .calculator-container {
+    width: 95%; /* ให้กว้างขึ้นบนมือถือ */
+    padding: 15px;
+  }
+
+  .calc-input {
+    font-size: 1.4em;
+  }
+
+  .result {
+    font-size: 1.8em;
+  }
+
+  .button-grid button {
+    font-size: 1.2em;
+    padding: 15px 0;
+  }
+
+  .history h2 {
+    font-size: 1rem;
+  }
+
+  .history button {
+    font-size: 0.8rem !important;
+    padding: 6px 12px !important;
+  }
+
+  .history li {
+    font-size: 0.9em;
+  }
+}

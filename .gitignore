@@ -1,0 +1,41 @@
+# Gitignore for Calculator-App project
+
+# Node.js
+    node_modules/
+    npm-debug.log*
+    yarn-debug.log*
+    yarn-error.log*
+    .env
+    .env.local
+    .env.*.local
+
+# Frontend (Vite/React)
+    frontend/node_modules/
+    frontend/dist/           # Built files from Vite
+    frontend/.vite/          # Vite cache
+    frontend/.vscode/        # VS Code settings (optional, if you don't want to share specific settings)
+
+# Backend (Node.js Server)
+    backend/node_modules/
+    backend/history.json     # We explicitly don't want to commit history.json as it's runtime data
+    backend/.env
+
+# Electron
+    electron/node_modules/
+    electron/dist/           # Electron build output (when you build the desktop app)
+    electron/out/            # Electron-builder output
+
+# Playwright
+    playwright/node_modules/
+    playwright/test-results/ # Playwright test results
+    playwright/playwright-report/ # Playwright HTML report
+    playwright/.cache/       # Playwright browser cache
+
+# IDE-specific files
+    .vscode/                 # VS Code settings (if you have one at root)
+    .idea/                   # IntelliJ IDEA
+    *.iml                    # IntelliJ IDEA
+
+# OS-specific files
+    .DS_Store                # macOS
+    Thumbs.db                # Windows

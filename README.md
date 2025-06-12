@@ -34,6 +34,7 @@
     ngrok http 5173
 - (ElectronJS)
     cd electron
+    npm install
     npm start
 
 ## หมายเหตุ
